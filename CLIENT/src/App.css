@@ -1,33 +1,10 @@
-/* .App {
-  text-align: center;
-}
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-} 
-*/
 body {
-  padding-top: 56px; 
-  margin-left: 250px; 
+  padding-top: 56px;
+  margin-left: 250px;
 }
 
 .sidebar {
-  margin-top: 56px; 
+  margin-top: 56px;
 }
 
 /* General styles */
@@ -84,10 +61,11 @@ body {
   color: #007bff;
 }
 
-.ei-row{
+.ei-row {
   height: 100vh;
   width: 100vw;
 }
+
 /* Sidebar styles */
 .sidebar {
   position: fixed;
@@ -97,7 +75,8 @@ body {
   width: 240px !important;
   background-color: #ffffff;
   border-right: 1px solid #e7e7e7;
-  padding-top: 70px; /* Account for fixed navbar height */
+  padding-top: 70px;
+  /* Account for fixed navbar height */
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   transition: all 0.3s ease;
@@ -128,7 +107,8 @@ body {
 
 /* Content styles */
 .main-content {
-  margin-left: 240px !important; /* Account for sidebar width */
+  margin-left: 240px !important;
+  /* Account for sidebar width */
   padding: 2rem;
   transition: all 0.3s ease;
 }
@@ -136,11 +116,13 @@ body {
 /* Media queries for responsiveness */
 @media (max-width: 991.98px) {
   .sidebar {
-    width: 200px; /* Adjust width for smaller screens */
+    width: 200px;
+    /* Adjust width for smaller screens */
   }
 
   .main-content {
-    margin-left: 200px; /* Adjust content margin for sidebar width */
+    margin-left: 200px;
+    /* Adjust content margin for sidebar width */
   }
 }
 

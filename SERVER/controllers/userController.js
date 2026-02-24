@@ -1,15 +1,16 @@
 const userModel = require("../models/user");
 module.exports = {
-    createUser: async(req, res)=>{
-        const { name, email, age } = req.body;
+    createUser: async (req, res) => {
         try {
-            const userAdded = await userModel.create({ name: name, email: email, age: age,});
-            res.status(201).json({ message: "User created successfully", data: userAdded });
-        } catch (err) {
-            res.status(400).json({ err: err.message });
+            const { name, email, age } = req.body;
+            if (!name || !email || !age) { return res.status(400).json({ err: "All fields are required" }) }
+            const userAdded = await userModel.create({ name: name, email: email, age: age });
+            if (!userAdded) { return res.status(400).json({ status: false, msg: "Failed to create user" }) }
+            res.status(201).json({ status: true, msg: "User created successfully", data: userAdded });
         }
+        catch (err) { res.status(400).json({ msg: err.message }) }
     },
-    getAllUsers: async(req, res)=>{
+    getAllUsers: async (req, res) => {
         try {
             const allUsers = await userModel.find();
             res.status(200).json({ data: allUsers });
@@ -17,28 +18,32 @@ module.exports = {
             res.status(400).json({ err: err.message });
         }
     },
-    getUser: async(req, res)=>{
+    getUser: async (req, res) => {
         try {
             const { id } = req.params;
-            const userData = await userModel.findById({ _id: id });
+            if (!id) { return res.status(400).json({ err: "User ID is required" }) }
+            const userData = await userModel.findById(id);
             res.status(200).json({ data: userData });
         } catch (error) {
-            res.status(400).json({ err: err.message });
+            res.status(400).json({ err: error.message });
         }
     },
-    updateUser: async(req, res)=>{
-        const { id } = req.params;
-        const details = req.body;
+    updateUser: async (req, res) => {
         try {
-            const updatedData = await userModel.findByIdAndUpdate(id, details, {new: true});
+            const { id } = req.params;
+            const details = req.body;
+            if (!id) { return res.status(400).json({ err: "User ID is required" }) }
+            if (!details) { return res.status(400).json({ err: "Update details are required" }) }
+            const updatedData = await userModel.findByIdAndUpdate(id, details, { new: true });
             res.status(200).json({ message: "User updated successfully", data: updatedData });
         } catch (err) {
             res.status(500).json({ err: err.message });
         }
     },
-    deleteUser: async(req, res)=>{
+    deleteUser: async (req, res) => {
         try {
             const { id } = req.params;
+            if (!id) { return res.status(400).json({ err: "User ID is required" }) }
             const userData = await userModel.findByIdAndDelete({ _id: id });
             res.status(200).json({ message: "User deleted successfully", data: userData });
         } catch (err) {
