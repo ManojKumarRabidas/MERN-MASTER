@@ -1,5 +1,6 @@
 export const STATIC_DATA = {
-    "users/list": [
+    // "users/list": [
+    users: [
         {
             _id: 0,
             name: "Ram",
@@ -26,7 +27,7 @@ export const STATIC_DATA = {
         },
     ],
 
-    posts: [
+    "items/list": [
         {
             title: "Portfolio Website",
             content: "Professional, fast-loading websites showcasing your business to the world.",

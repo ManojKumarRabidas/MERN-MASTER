@@ -62,12 +62,10 @@ const STATIC_DATA = {
 }
 
 export function useContent(path, method, body, headers) {
-    console.log("useContent called with path:", path, "method:", method, "body:", body, "headers:", headers);
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     useEffect(() => {
-        console.log("calling")
         const fetchData = async () => {
             try {
                 const siteType = import.meta.env.VITE_SITE_TYPE || "STATIC"
@@ -78,7 +76,6 @@ export function useContent(path, method, body, headers) {
                     setData(STATIC_DATA[path] || [])
                 }
                 else {
-                    console.log("Fetching data from API:", `${apiUrl}/${path}`, "Method:", method, "Body:", body, "Headers:", headers);
                     const response = await fetch(`${apiUrl}/${path}`, {
                         method: method,
                         body: body,
