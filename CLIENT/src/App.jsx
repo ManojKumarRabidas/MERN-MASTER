@@ -1,9 +1,6 @@
 import './App.css'
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
-// import Create from './pages/users/Create';
-// import Update from './pages/users/Update';
-// import Read from './pages/users/List';
 import Users from './pages/Users';
 import Home from './pages/Home';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -26,10 +23,6 @@ export default function App() {
             <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
               <Routes>
                 <Route exact path='/' element={<Home />} />
-                {/* <Route exact path='/create' element={<Create />} />
-                <Route exact path='/userlist' element={<Read />} />
-                <Route exact path='/update/:id' element={<Update />} /> */}
-
                 <Route exact path='/users/*' element={<Users />} />
               </Routes>
             </main>

@@ -31,9 +31,12 @@ function Read() {
     // if (loading) {
     //     return <LoadingSpinner text="Loading about..." />
     // }
+
     return (
         <div className="container my-2">
             {error && (<div className="alert alert-danger" role="alert">{error}</div>)}
+            {success && (<div className="alert alert-success" role="alert">{success}</div>)}
+
             <h2 className="text-center">User List</h2>
             <table className="table">
                 <thead>

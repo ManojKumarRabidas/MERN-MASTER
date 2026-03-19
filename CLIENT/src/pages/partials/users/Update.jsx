@@ -28,7 +28,6 @@ function Update() {
 
     const handleEdit = async (event) => {
         event.preventDefault();
-
         const addUser = { name, email, age };
         const { status, data, msg } = await apiCall(`users/update/${id}`, "PATCH", addUser, { "Content-Type": "application/json" })
         if (!status) { setError(msg || "Failed to update user"); setResponse(""); return; }
@@ -60,7 +59,8 @@ function Update() {
                     <label className="form-label">Age</label>
                     <input name="age" type="number" className="form-control" defaultValue={userData?.age} onChange={(e) => setAge(e.target.value)} />
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary m-2">Submit</button>
+                <button type="reset" className="btn btn-secondary m-2">Reset</button>
             </form>
         </div>
     );

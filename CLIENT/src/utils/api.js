@@ -33,8 +33,8 @@ export async function apiCall(path, method, body, headers) {
         const response = await fetch(firstParameter, secondParameter)
         const result = await response.json()
         if (!response.ok) return { status: false, data: [], msg: result.msg }
-        return { status: true, data: result }
-    } catch (error) {
-        return { status: false, data: [], msg: error.message || "An unexpected error occurred" }
+        return { status: true, data: result, msg: result.msg }
+    } catch (err) {
+        return { status: false, data: [], msg: err.message || "An unexpected error occurred" }
     }
 }

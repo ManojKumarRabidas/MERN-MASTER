@@ -1,3 +1,5 @@
+// Unused for now 
+
 import { useEffect, useState } from "react"
 
 const STATIC_DATA = {

@@ -39,7 +39,8 @@ function Create() {
                     <label className="form-label">Age</label>
                     <input name="age" type="number" className="form-control" value={age} onChange={(e) => setAge(e.target.value)} />
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary m-2">Submit</button>
+                <button type="reset" className="btn btn-secondary m-2">Reset</button>
             </form>
         </div>
     );
